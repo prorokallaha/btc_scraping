@@ -1,4 +1,4 @@
-# import talib
+import talib
 import numpy as np
 
 from config import settings
