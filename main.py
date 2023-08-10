@@ -41,15 +41,15 @@ async def socket_connection(parsing_func, status):
 
     try:
         async with websockets.connect(
-                uri='wss://stream.binance.com:9443/ws/btcusdt@kline_1m',
+                uri='wss://stream.binance.com:9443/ws/btcusdt@kline_30m',
                 ping_interval=None
         ) as websocket_btc:
             async with websockets.connect(
-                    uri='wss://stream.binance.com:9443/ws/ethusdt@kline_1m',
+                    uri='wss://stream.binance.com:9443/ws/ethusdt@kline_30m',
                     ping_interval=None
             ) as websocket_eth:
                 async with websockets.connect(
-                        uri='wss://stream.binance.com:9443/ws/ltcusdt@kline_1m',
+                        uri='wss://stream.binance.com:9443/ws/ltcusdt@kline_30m',
                         ping_interval=None
                 ) as websocket_ltc:
                     start_time = time.time()
