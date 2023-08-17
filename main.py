@@ -3,6 +3,7 @@ import requests
 import websockets
 import json
 import time
+import datetime
 
 from config import settings
 from indicators.rsi import RSI
@@ -100,6 +101,15 @@ async def parsing_data(socket_result=settings.crypto_result):
             rsi.scraping_rsi(array=settings.crypto_closes, token='btc')
             rsi.scraping_rsi(array=settings.crypto_closes, token='ltc')
             rsi.scraping_rsi(array=settings.crypto_closes, token='eth')
+
+            last_rsi_btc = settings.crypto_status['btc']['last_rsi']
+            last_rsi_ltc = settings.crypto_status['ltc']['last_rsi']
+            last_rsi_eth = settings.crypto_status['eth']['last_rsi']
+            print(
+f'''{str(datetime.datetime.now())}
+Последнее значение BTC: {last_rsi_btc}
+Последнее значение LTC: {last_rsi_ltc}
+Последнее значение ETH: {last_rsi_eth}''')
             await send_info()
 
 async def main(status):
